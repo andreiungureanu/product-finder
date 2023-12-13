@@ -3,7 +3,13 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import SearchIcon from '../img/ionic-md-search.svg';
 import CustomDropdown from '../components/CustomDropdown/CustomDropdown';
-import { ProductFinderDataType } from '../data/data';
+import { 
+  ProductFinderDataType, 
+  strategyFilters, 
+  assetClassFilters,
+  marketAndRegionFilters,
+  styleFilters
+} from '../data/data';
 import './ProductFinder.css';
 
 interface ProductFinderProps {
@@ -39,10 +45,10 @@ const ProductFinder = ({data}: ProductFinderProps) => {
       </div>
 
       <div className="filter-dropdowns">
-        <CustomDropdown data={{placeholder: 'Strategy'}} />
-        <CustomDropdown data={{placeholder: 'Asset Class'}} />
-        <CustomDropdown data={{placeholder: 'Market & Region'}} />
-        <CustomDropdown data={{placeholder: 'Style'}} />
+        <CustomDropdown data={strategyFilters} />
+        <CustomDropdown data={assetClassFilters} />
+        <CustomDropdown data={marketAndRegionFilters} />
+        <CustomDropdown data={styleFilters} />
       </div>
     </div>
  

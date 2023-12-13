@@ -1,3 +1,5 @@
+const uniqueId = require('lodash.uniqueid');
+
 type ProductFinderDataType = {
     fundName: string,
     ticker: string,
@@ -156,11 +158,188 @@ const data:ProductFinderDataType[] = [
     }
 ]
 
+const strategyFilters = {
+    placeholder: 'Strategy',
+    options: [
+        {
+            list: [
+                {
+                    id: uniqueId(),
+                    name: 'Thematic',
+                },
+                {
+                    id: uniqueId(),
+                    name: 'Factors',
+                },
+                {
+                    id: uniqueId(),
+                    name: 'Equity Income',
+                },
+                {
+                    id: uniqueId(),
+                    name: 'Capital Strength',
+                },
+                {
+                    id: uniqueId(),
+                    name: 'Currency Hedge',
+                },
+                {
+                    id: uniqueId(),
+                    name: 'ESG',
+                }
+            ]
+        }
+    ]
+};
+
+const assetClassFilters = {
+    placeholder: 'Asset Class',
+    options: [
+        {
+            groupName: 'Equity',
+            list: [
+                {
+                    id: uniqueId(),
+                    name: 'All Cap',
+                },
+                {
+                    id: uniqueId(),
+                    name: 'Large Cap',
+                },
+                {
+                    id: uniqueId(),
+                    name: 'Small Cap',
+                }
+            ]
+        },
+        {
+            groupName: 'Fixed Income',
+            list: [
+                {
+                    id: uniqueId(),
+                    name: 'Government',
+                },
+                {
+                    id: uniqueId(),
+                    name: 'Currency',
+                }
+            ]
+        }
+    ]
+};
+
+const marketAndRegionFilters = {
+    placeholder: 'Market & Region',
+    options: [
+        {
+            groupName: 'Market',
+            list: [
+                {
+                    id: uniqueId(),
+                    name: 'Developed',
+                },
+                {
+                    id: uniqueId(),
+                    name: 'Emerging',
+                }
+            ]
+        },
+        {
+            groupName: 'Region',
+            list: [
+                {
+                    id: uniqueId(),
+                    name: 'Asia Pacific',
+                    subgroup: [
+                        {
+                            id: uniqueId(),
+                            name: 'India',
+                        },
+                        {
+                            id: uniqueId(),
+                            name: 'China',
+                        },
+                        {
+                            id: uniqueId(),
+                            name: 'Japan',
+                        }
+                    ]
+                },
+                {
+                    id: uniqueId(),
+                    name: 'Europe',
+                    subgroup: [
+                        {
+                            id: uniqueId(),
+                            name: 'Eurozone',
+                        },
+                        {
+                            id: uniqueId(),
+                            name: 'Germany',
+                        },
+                        {
+                            id: uniqueId(),
+                            name: 'Switzerland',
+                        },
+                        {
+                            id: uniqueId(),
+                            name: 'United Kingdom',
+                        }
+                    ]
+                },
+                {
+                    id: uniqueId(),
+                    name: 'Global',
+                },
+                {
+                    id: uniqueId(),
+                    name: 'North America',
+                    subgroup: [
+                        {
+                            id: uniqueId(),
+                            name: 'United States',
+                        },
+                        {
+                            id: uniqueId(),
+                            name: 'Canada',
+                        }
+                    ]
+                },
+                {
+                    id: uniqueId(),
+                    name: 'Australia',
+                }
+            ]
+        }
+    ]
+};
+
+const styleFilters = {
+    placeholder: 'Style',
+    options: [
+        {
+            list: [
+                {
+                    id: uniqueId(),
+                    name: 'Index',
+                },
+                {
+                    id: uniqueId(),
+                    name: 'Active',
+                }
+            ]
+        }
+    ]
+};
 
 export type {
     ProductFinderDataType
 }
 
 export {
-    data
+    data,
+    strategyFilters,
+    assetClassFilters,
+    marketAndRegionFilters,
+    styleFilters
 }

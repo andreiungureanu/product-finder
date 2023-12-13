@@ -5,25 +5,27 @@ import DropdownArrow from '../../img/dropdown-arrow.svg';
 type OptionType = {
     id: number;
     name: string;
+    subgroup?: OptionType[];
 }
+
+type OptionsGroup = {
+    groupName?: string;
+    list: OptionType[];
+};
 
 type DropdownData = {
     placeholder: string;
+    options: OptionsGroup[];
 }
 
 interface CustomDropdownProps {
     data: DropdownData
 }
 
-const CustomDropdown = ({data: {placeholder}}: CustomDropdownProps) => {
+const CustomDropdown = ({data}: CustomDropdownProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedItems, setSelectedItems] = useState<OptionType[]>([] as unknown as OptionType[]);
-
-    const options = [
-        { id: 1, name: "Option 1" },
-        { id: 2, name: "Option 2" },
-        { id: 3, name: "Option 3" },
-    ];
+    const {placeholder, options} = data;
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
@@ -40,6 +42,60 @@ const CustomDropdown = ({data: {placeholder}}: CustomDropdownProps) => {
         }
     };
 
+    const renderOptionsSubGroup = (option: OptionType) => (
+        <>
+            <div className="dropdown-option" key={option.id}>
+                <input
+                    type="checkbox"
+                    id={`option-${option.id}`}
+                    name={`option-${option.id}`}
+                    value={option.name}
+                    checked={selectedItems.some((item: OptionType) => item.id === option.id)}
+                    onChange={(e) => handleCheckboxChange(e, option)}
+                />
+                <label htmlFor={`option-${option.id}`} className="label">{option.name}</label>
+            </div>
+            {option.subgroup?.map((option) => (
+                <div className="dropdown-option-subgroup" key={option.id}>
+                    <input
+                        type="checkbox"
+                        id={`option-${option.id}`}
+                        name={`option-${option.id}`}
+                        value={option.name}
+                        checked={selectedItems.some((item: OptionType) => item.id === option.id)}
+                        onChange={(e) => handleCheckboxChange(e, option)}
+                    />
+                    <label htmlFor={`option-${option.id}`} className="label">{option.name}</label>
+                </div>
+            ))}
+        </>
+    )
+
+    const renderOptions = (options: OptionsGroup) => (
+        <>
+            {options.groupName && 
+                <div className="options-group h4-roboto-—-15pt">{options.groupName}</div>
+            }
+            {options.list.map((option: OptionType) => (
+                <>
+                    {option.subgroup ? renderOptionsSubGroup(option) :
+                        <div className="dropdown-option" key={option.id}>
+                            <input
+                                type="checkbox"
+                                id={`option-${option.id}`}
+                                name={`option-${option.id}`}
+                                value={option.name}
+                                checked={selectedItems.some((item: OptionType) => item.id === option.id)}
+                                onChange={(e) => handleCheckboxChange(e, option)}
+                                />
+                            <label htmlFor={`option-${option.id}`} className="label">{option.name}</label>
+                        </div>
+                    }
+                </>
+            ))}
+        </>
+    );
+
     return (
         <div className="dropdown">
             <div className="dropdown-trigger" onClick={toggleDropdown}>
@@ -52,19 +108,7 @@ const CustomDropdown = ({data: {placeholder}}: CustomDropdownProps) => {
 
             {isOpen && (
                 <div className="dropdown-options">
-                    {options.map((option) => (
-                        <div className="dropdown-option" key={option.id}>
-                            <input
-                                type="checkbox"
-                                id={`option-${option.id}`}
-                                name={`option-${option.id}`}
-                                value={option.name}
-                                checked={selectedItems.some((item: OptionType) => item.id === option.id)}
-                                onChange={(e) => handleCheckboxChange(e, option)}
-                            />
-                            <label htmlFor={`option-${option.id}`} className="label">{option.name}</label>
-                        </div>
-                    ))}
+                    {options.map(renderOptions)}
                 </div>
             )}
         </div>
