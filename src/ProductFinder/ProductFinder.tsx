@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
-import './ProductFinder.css';
 import SearchIcon from '../img/ionic-md-search.svg';
+import CustomDropdown from '../components/CustomDropdown/CustomDropdown';
 import { ProductFinderDataType } from '../data/data';
+import './ProductFinder.css';
 
 interface ProductFinderProps {
   data: ProductFinderDataType[];
@@ -38,10 +39,10 @@ const ProductFinder = ({data}: ProductFinderProps) => {
       </div>
 
       <div className="filter-dropdowns">
-        <span>Dropdown 1</span>
-        <span>Dropdown 2</span>
-        <span>Dropdown 3</span>
-        <span>Dropdown 4</span>
+        <CustomDropdown data={{placeholder: 'Strategy'}} />
+        <CustomDropdown data={{placeholder: 'Asset Class'}} />
+        <CustomDropdown data={{placeholder: 'Market & Region'}} />
+        <CustomDropdown data={{placeholder: 'Style'}} />
       </div>
     </div>
  

@@ -41,9 +41,10 @@
     }
 
     .filter-dropdowns {
+      display: flex;
       margin-top: 38px;
 
-      > span:not(:last-child) {
+      .dropdown:not(:last-child) {
         margin-right: 25px;
       }
     }
