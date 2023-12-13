@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 68px;
+    padding: 0 94px;
+    background: var(---ffffff) 0% 0% no-repeat padding-box;
+    border: 1px solid #DDDDDD;
+    opacity: 1;
+    
+    .profile {
+        display: flex;
+        justify-content: flex-end;
+        align-content: center;
+        height: 20px;
+        
+        .user {    
+            align-self: center;
+            margin-left: 10px;
+            height: 15px;
+            /* font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-15)/var(--unnamed-line-spacing-21) Myriad Pro; */
+            color: var(---111111);
+            text-align: left;
+            /* font: normal normal normal 15px/21px Myriad Pro; */
+            letter-spacing: 0.1px;
+            color: #111111;
+            opacity: 1;    
+        }
+    }
+}

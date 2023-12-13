@@ -1,0 +1,91 @@
+.product-finder {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(---f8f9fa) 0% 0% no-repeat padding-box;
+  opacity: 1;
+
+  .product-finder-header {
+    padding: 35px 92px;
+    
+    .search-bar {
+      margin-top: 41px;
+      width: auto;
+      font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-medium) var(--unnamed-font-size-20)/29.87px var(--unnamed-font-family-roboto);
+      letter-spacing: var(--unnamed-character-spacing-0);
+      text-align: left;
+      font: normal normal medium 20px/30px Roboto;
+      letter-spacing: 0px;
+      color: #002F56;
+      text-transform: uppercase;
+      opacity: 1;
+    }
+
+    .filter-dropdowns {
+      margin-top: 38px;
+
+      > span:not(:last-child) {
+        margin-right: 25px;
+      }
+    }
+  }
+  
+  .product-finder-content {
+    padding: 20px 90px 30px 92px;
+    background: var(---ffffff) 0% 0% no-repeat padding-box;
+    opacity: 1;
+    
+    .table {
+      display: flex;
+      flex-direction: column;
+      
+      .table-header {
+        display: flex;
+        height: 50px;
+        background: #335776 0% 0% no-repeat padding-box;
+        font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-medium) var(--unnamed-font-size-13)/var(--unnamed-line-spacing-19) var(--unnamed-font-family-roboto);
+        letter-spacing: var(--unnamed-character-spacing-0);
+        color: var(---ffffff);
+        text-align: left;
+        opacity: 1;
+
+        .cell {
+          &.first-column {
+            justify-content: center;
+            color: var(---ffffff);
+          }
+        }
+      }
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid #E3E2E2;
+        padding: 10px;
+        opacity: 1;
+      }
+      
+      .cell {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        opacity: 1;
+        
+        &.primary {
+          background: #335776 0% 0% no-repeat padding-box;
+        }
+        
+        &.secundary {
+          background: #063156 0% 0% no-repeat padding-box;
+        }
+
+        &.first-column {
+          justify-content: flex-start;
+          color: var(--unnamed-color-003057);
+        }
+      }
+    }
+  }
+}
