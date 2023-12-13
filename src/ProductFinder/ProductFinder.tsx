@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import './ProductFinder.css';
+import SearchIcon from '../img/ionic-md-search.svg';
 import { ProductFinderDataType } from '../data/data';
 
 interface ProductFinderProps {
@@ -9,6 +10,19 @@ interface ProductFinderProps {
 }
 
 const ProductFinder = ({data}: ProductFinderProps) => {
+  const [filterFundName, setFilterFundName] = useState('');
+  
+  const handleSearch = (name: string) => {
+    setFilterFundName(name.trim());
+  }
+
+  const isFiltered = (item:ProductFinderDataType) => {
+    if(filterFundName !== '') {
+      if(item.fundName.toLowerCase().includes(filterFundName.toLowerCase()))
+      return true;
+      else return false;
+    } else return true;
+  }
 
   return (
     <div className="product-finder">
@@ -16,7 +30,13 @@ const ProductFinder = ({data}: ProductFinderProps) => {
  
     <div className="product-finder-header">
       <div className="h2-roboto-—-25pt">Product Finder</div>
-      <div className="search-bar">Search</div>
+
+      <div className="search-bar">
+        <img src={SearchIcon} alt="Search" />
+        <span className="h3-roboto-—-20pt">Search</span>
+        <input type="text" placeholder="Enter fund name" onChange={(e) => handleSearch(e.target.value)}></input>
+      </div>
+
       <div className="filter-dropdowns">
         <span>Dropdown 1</span>
         <span>Dropdown 2</span>
@@ -39,20 +59,24 @@ const ProductFinder = ({data}: ProductFinderProps) => {
             <div className="cell secundary">Style</div>
           </div>
         
-          {data.map((item) => (
-            <div className="row" key={item.isin}>
-              <div className="cell h5-roboto-—-13pt first-column">{item.fundName}</div>
-              <div className="cell">{item.ticker}</div>
-              <div className="cell">{item.incomeTreatment}</div>
-              <div className="cell">{item.currency}</div>
-              <div className="cell">{item.isin}</div>
-              <div className="cell">{item.strategy}</div>
-              <div className="cell">{item.assetClass}</div>
-              <div className="cell">{item.region}</div>
-              <div className="cell">{item.style}</div>
-            </div>
-          ))}
-        </div>
+        <>
+          {data.map((item) =>
+            isFiltered(item) ? (
+              <div className="row" key={item.isin}>
+                <div className="cell h5-roboto-—-13pt first-column">{item.fundName}</div>
+                <div className="cell">{item.ticker}</div>
+                <div className="cell">{item.incomeTreatment}</div>
+                <div className="cell">{item.currency}</div>
+                <div className="cell">{item.isin}</div>
+                <div className="cell">{item.strategy}</div>
+                <div className="cell">{item.assetClass}</div>
+                <div className="cell">{item.region}</div>
+                <div className="cell">{item.style}</div>
+              </div>
+            ) : null
+          )}
+        </>
+      </div>
     </div>
  
     <Footer />
