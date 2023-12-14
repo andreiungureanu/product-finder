@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ef56b680.css",
+    "main.js": "/static/js/main.4c025c48.js",
+    "static/media/huguenots-mark.svg": "/static/media/huguenots-mark.550283a8d79f245a648bc2ffd54a6cee.svg",
+    "index.html": "/index.html",
+    "static/media/dropdown-arrow.svg": "/static/media/dropdown-arrow.ab52c97c10b42dc6ad544ee3f433baf1.svg",
+    "static/media/ionic-md-search.svg": "/static/media/ionic-md-search.73b0949e1cdbd3dd3f9504efa229f4a0.svg",
+    "main.ef56b680.css.map": "/static/css/main.ef56b680.css.map",
+    "main.4c025c48.js.map": "/static/js/main.4c025c48.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ef56b680.css",
+    "static/js/main.4c025c48.js"
+  ]
+}
