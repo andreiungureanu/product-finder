@@ -15,15 +15,12 @@
         height: 20px;
         
         .user {    
-            align-self: center;
             margin-left: 10px;
             height: 15px;
-            /* font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-15)/var(--unnamed-line-spacing-21) Myriad Pro; */
+            font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-15)/var(--unnamed-line-spacing-21) "Myriad Pro", sans-serif;
+            letter-spacing: 0.1px;
             color: var(---111111);
             text-align: left;
-            /* font: normal normal normal 15px/21px Myriad Pro; */
-            letter-spacing: 0.1px;
-            color: #111111;
             opacity: 1;    
         }
     }

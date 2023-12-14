@@ -7,6 +7,10 @@
 
   .product-finder-header {
     padding: 35px 92px;
+
+    .title {
+      font-family: sans-serif;
+    }
     
     .search-bar {
       display: flex;
@@ -15,15 +19,14 @@
       height: 30px;
       width: 760px;
       border-bottom: 2px solid #0E2F53;
-      font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-medium) var(--unnamed-font-size-20)/29.87px var(--unnamed-font-family-roboto);
-      letter-spacing: var(--unnamed-character-spacing-0);
+      font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-medium) var(--unnamed-font-size-20)/29.87px var(--unnamed-font-family-roboto), sans-serif;
       text-align: left;
-      color: #002F56;
       text-transform: uppercase;
       opacity: 1;
 
       > span {
         margin-left: 10px;
+        font-family: sans-serif;
       }
 
       > input[type="text"], input[type="text"]:focus {
@@ -32,7 +35,7 @@
         background: transparent;
         border: none;
         outline-width: 0;
-        font: italic normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-13)/18px var(--unnamed-font-family-roboto);
+        font: italic normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-13)/18px var(--unnamed-font-family-roboto), sans-serif;;
         letter-spacing: var(--unnamed-character-spacing-0);
         text-align: left;
         color: #AAAAAA;
@@ -65,14 +68,13 @@
         display: flex;
         height: 50px;
         background: #335776 0% 0% no-repeat padding-box;
-        font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-medium) var(--unnamed-font-size-13)/var(--unnamed-line-spacing-19) var(--unnamed-font-family-roboto);
+        font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-medium) var(--unnamed-font-size-13)/14px var(--unnamed-font-family-roboto), sans-serif;
         letter-spacing: var(--unnamed-character-spacing-0);
         color: var(---ffffff);
-        text-align: left;
         opacity: 1;
 
         .cell.first-column {
-          justify-content: flex-start;
+          text-align: left;
           color: var(---ffffff);
           padding-left: 10px;
         }
@@ -89,9 +91,10 @@
       .cell {
         display: flex;
         flex: 1;
+        height: 50px;
         align-items: center;
         justify-content: center;
-        height: 50px;
+        text-align: center;
         opacity: 1;
         
         &.primary {
@@ -105,6 +108,7 @@
         &.first-column {
           flex-grow: 2;
           justify-content: flex-start;
+          text-align: left;
           color: var(--unnamed-color-003057);
         }
       }

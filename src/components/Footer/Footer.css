@@ -7,7 +7,7 @@
     .description {
         margin: 35px 0;
         width: 904px;
-        font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 14px/18.2px Myriad Pro;
+        font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 14px/18.2px "Myriad Pro", sans-serif;
         color: var(---ffffff);
         text-align: left;
         letter-spacing: -0.14px;
@@ -19,13 +19,11 @@
 
         > span {
             margin-right: 15px;
-            font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 16px/var(--unnamed-line-spacing-21) Myriad Pro;
+            font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 16px/var(--unnamed-line-spacing-21) "Myriad Pro", sans-serif;
             letter-spacing: var(--unnamed-character-spacing-0);
             color: var(---ffffff);
             text-align: left;
-            font: normal normal normal 16px/21px Myriad Pro;
             letter-spacing: 0px;
-            color: #FFFFFF;
             opacity: 1;
         }
     }

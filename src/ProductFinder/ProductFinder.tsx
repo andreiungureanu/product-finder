@@ -60,7 +60,7 @@ const ProductFinder = ({data}: ProductFinderProps) => {
       <Header />
   
       <div className="product-finder-header">
-        <div className="h2-roboto-—-25pt">Product Finder</div>
+        <div className="title h2-roboto-—-25pt">Product Finder</div>
 
         <div className="search-bar">
           <img src={SearchIcon} alt="Search" />
