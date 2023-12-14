@@ -92,8 +92,7 @@ const ProductFinder = ({data}: ProductFinderProps) => {
               <div className="cell secundary">Style</div>
             </div>
           
-            {data.map((item) =>
-              isFiltered(item) ? (
+            {data.filter(isFiltered).map((item) => (
                 <div className="row" key={item.isin}>
                   <div className="cell h5-roboto-—-13pt first-column">{item.fundName}</div>
                   <div className="cell">{item.ticker}</div>
@@ -105,8 +104,7 @@ const ProductFinder = ({data}: ProductFinderProps) => {
                   <div className="cell">{item.region}</div>
                   <div className="cell">{item.style}</div>
                 </div>
-              ) : null
-            )}
+            ))}
         </div>
       </div>
   
