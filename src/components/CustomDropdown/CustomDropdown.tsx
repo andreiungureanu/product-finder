@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './CustomDropdown.css';
 import DropdownArrow from '../../img/dropdown-arrow.svg';
+import { useCustomDropdownContext } from "./CustomDropdownContext";
 
 type OptionType = {
     id: number;
@@ -24,7 +25,7 @@ interface CustomDropdownProps {
 
 const CustomDropdown = ({data}: CustomDropdownProps) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedItems, setSelectedItems] = useState<OptionType[]>([] as unknown as OptionType[]);
+    const { selectedItems, setSelectedItems } = useCustomDropdownContext();
     const {placeholder, options} = data;
 
     const toggleDropdown = () => {
@@ -43,7 +44,7 @@ const CustomDropdown = ({data}: CustomDropdownProps) => {
     };
 
     const renderOptionsSubGroup = (option: OptionType) => (
-        <>
+        <div key={`group-${option.id}`}>
             <div className="dropdown-option" key={option.id}>
                 <input
                     type="checkbox"
@@ -56,7 +57,7 @@ const CustomDropdown = ({data}: CustomDropdownProps) => {
                 <label htmlFor={`option-${option.id}`} className="label">{option.name}</label>
             </div>
             {option.subgroup?.map((option) => (
-                <div className="dropdown-option-subgroup" key={option.id}>
+                <div className="dropdown-option-subgroup" key={`subgroup-${option.id}`}>
                     <input
                         type="checkbox"
                         id={`option-${option.id}`}
@@ -68,32 +69,29 @@ const CustomDropdown = ({data}: CustomDropdownProps) => {
                     <label htmlFor={`option-${option.id}`} className="label">{option.name}</label>
                 </div>
             ))}
-        </>
+        </div>
     )
 
     const renderOptions = (options: OptionsGroup) => (
-        <>
+        <div key={`${options.groupName}-${options.list[0].id}`}>
             {options.groupName && 
                 <div className="options-group h4-roboto-—-15pt">{options.groupName}</div>
             }
             {options.list.map((option: OptionType) => (
-                <>
-                    {option.subgroup ? renderOptionsSubGroup(option) :
-                        <div className="dropdown-option" key={option.id}>
-                            <input
-                                type="checkbox"
-                                id={`option-${option.id}`}
-                                name={`option-${option.id}`}
-                                value={option.name}
-                                checked={selectedItems.some((item: OptionType) => item.id === option.id)}
-                                onChange={(e) => handleCheckboxChange(e, option)}
-                                />
-                            <label htmlFor={`option-${option.id}`} className="label">{option.name}</label>
-                        </div>
-                    }
-                </>
+                option.subgroup ? renderOptionsSubGroup(option) :
+                    <div className="dropdown-option" key={option.id}>
+                        <input
+                            type="checkbox"
+                            id={`option-${option.id}`}
+                            name={`option-${option.id}`}
+                            value={option.name}
+                            checked={selectedItems.some((item: OptionType) => item.id === option.id)}
+                            onChange={(e) => handleCheckboxChange(e, option)}
+                        />
+                        <label htmlFor={`option-${option.id}`} className="label">{option.name}</label>
+                    </div>
             ))}
-        </>
+        </div>
     );
 
     return (
@@ -113,6 +111,10 @@ const CustomDropdown = ({data}: CustomDropdownProps) => {
             )}
         </div>
     );
+}
+
+export type {
+    OptionType
 }
 
 export default CustomDropdown;

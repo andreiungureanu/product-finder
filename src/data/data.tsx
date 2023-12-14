@@ -169,6 +169,10 @@ const strategyFilters = {
                 },
                 {
                     id: uniqueId(),
+                    name: 'Fixed Income',
+                },
+                {
+                    id: uniqueId(),
                     name: 'Factors',
                 },
                 {
